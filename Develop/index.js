@@ -56,7 +56,7 @@ const questions = [
         name: 'license',
         type: 'list',
         message: 'Please select the license to be added to your project. (use arrow keys to navigate)',
-        choices: ['MIT', 'Creative Commons License Family', 'Mozilla Public License 2.0']
+        choices: ['MIT', 'IPL_1.0', 'Hippocratic_3.0', 'EPL_1.0', 'Apache_2.0']
     },
 
     {
@@ -79,56 +79,7 @@ const questions = [
 ];
 
 // Create a function to generate the markdown file
-const generateMarkdown = (data) => {
-return `
-# ${data.title}
-
-## Table of Contents
-
-- [Description](#description)
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Author](#author)
-- [Contributors](#contributors)
-- [Tests](#tests)
-- [Questions](#questions)
-
-## Description
-
-${data.description}
-
-[Link to Deployed website](${data.website})
-
-## Installation
-
-${data.installation}
-
-## Usage
-
-${data.usage}
-
-## License
-
-This project has the ${license}.
-
-## Author
-
-${data.realName}
-[GitHub](https://github.com/${data.username}/)
-
-## Contributors
-Special thanks to:
-${data.contributors}
-
-## Tests
-
-${data.test}
-
-## Questions
-If you have any questions, my GitHub is [GitHub](https://github.com/${data.username}/).
-You can also reach me by email at [${data.email}](${data.email}).
-`}
+const generateMarkdown = require('./utils/generateMarkdown.js')
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -138,8 +89,8 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {
-    inquirer
+async function init() {
+    await inquirer
         .prompt(questions)
         .then(writeToFile(fileName, data)) 
 }
