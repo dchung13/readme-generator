@@ -1,9 +1,9 @@
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  const licenseSection = '';
+  var licenseSection = '';
   if (license === 'MIT' ) {
-    licenseSection = `Copyright <2023> <${realName}>
+    licenseSection = `Copyright <2023> 
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
     
@@ -361,13 +361,21 @@ function renderLicenseSection(license) {
   }
 }
 
+function generateLicenseBadge(license) {
+  return `![License](https://img.shields.io/badge/License-${license}-blue.svg)`;
+}
+
+function generateLicenseLink(license) {
+  return `[License](https://opensource.org/licenses/${license})`;
+}
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
     # ${data.title}
-    ![License](https://img.shields.io/badge/License-${license}-blue.svg)
-    [License](https://opensource.org/licenses/${license})
+    ${generateLicenseBadge(data.license)}
+    ${generateLicenseLink(data.license)}
 
     ## Table of Contents
     
@@ -396,7 +404,7 @@ function generateMarkdown(data) {
     
     ## License
     
-    ${renderLicenseSection()}
+    ${renderLicenseSection(data.license)}
     
     ## Author
     
