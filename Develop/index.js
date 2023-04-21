@@ -89,8 +89,8 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-async function init() {
-    await inquirer
+function init() {
+    inquirer
         .prompt(questions)
         .then(writeToFile(fileName, data)) 
 }
