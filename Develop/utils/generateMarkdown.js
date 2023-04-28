@@ -372,57 +372,56 @@ function generateLicenseLink(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `
-    # ${data.title}
-    ${generateLicenseBadge(data.license)}
-    ${generateLicenseLink(data.license)}
+  return `# ${data.title}
+${generateLicenseBadge(data.license)}
+${generateLicenseLink(data.license)}
 
-    ## Table of Contents
+## Table of Contents
     
-    - [Description](#description)
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Author](#author)
-    - [Contributors](#contributors)
-    - [Tests](#tests)
-    - [Questions](#questions)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Author](#author)
+- [Contributors](#contributors)
+- [Tests](#tests)
+- [Questions](#questions)
     
-    ## Description
+## Description
     
-    ${data.description}
+${data.description}
     
-    [Link to Deployed website](${data.website})
+[Link to Deployed website](${data.website})
     
-    ## Installation
+## Installation
     
-    ${data.installation}
+${data.installation}
     
-    ## Usage
+## Usage
     
-    ${data.usage}
+${data.usage}
     
-    ## License
+## License
     
-    ${renderLicenseSection(data.license)}
+${renderLicenseSection(data.license)}
     
-    ## Author
+## Author
     
-    ${data.realName}
-    [GitHub](https://github.com/${data.username}/)
+${data.realName}
+[GitHub](https://github.com/${data.username}/)
     
-    ## Contributors
-    Special thanks to:
-    ${data.contributors}
+## Contributors
+Special thanks to:
+${data.contributors}
     
-    ## Tests
+## Tests
     
-    ${data.test}
+${data.test}
     
-    ## Questions
-    If you have any questions, my GitHub is [GitHub](https://github.com/${data.username}/).
-    You can also reach me by email at [${data.email}](${data.email}).
-    `};
+## Questions
+If you have any questions, my GitHub is [GitHub](https://github.com/${data.username}/).
+You can also reach me by email at [${data.email}](${data.email}).
+`};
     
 
 
